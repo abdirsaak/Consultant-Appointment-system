@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MdEdit, MdClose } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import user_profile from '../../assets/images/user_profile.jpg';
 
 function Teacher_profile() {
   const [teachers, setTeachers] = useState([]);
@@ -147,6 +148,7 @@ function Teacher_profile() {
       case "sex":
         return (
           <div className="fixed top-0 left-0 w-full h-full bg-gray-500 bg-opacity-50 flex justify-center items-center">
+            
             <div className="bg-white p-4 rounded-md w-[300px] lg:w-[400px]">
               <div className='mb-10 cursor-pointer' onClick={() => setModal({ type: null, open: false })}>
                 <span className='float-right'><MdClose /></span>
@@ -175,6 +177,12 @@ function Teacher_profile() {
         <div>
           {teachers.map((teacher) => (
             <div key={teacher.id}>
+               <div className="flex justify-center ">
+          <div className="flex flex-col justify-center">
+            <img className='w-[200px] h-[200px] rounded-full ' src={user_profile} alt="user_profile" />
+          <h1 className='text-[30px] font-bold text-center'>{teacher.name}</h1>
+          </div>
+        </div>
               <div className="content flex mt-4 items-center justify-between max-w-md bg-white p-4 rounded-md">
                 <h3>{teacher.name}</h3>
                 <span className="cursor-pointer" onClick={() => setModal({ type: "username", open: true })}><MdEdit /></span>

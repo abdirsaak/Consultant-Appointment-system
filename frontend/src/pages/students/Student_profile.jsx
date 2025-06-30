@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MdEdit, MdClose } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
+import user_profile from '../../assets/images/user_profile.jpg';
 function Student_profile() {
   const [model, setModel] = useState(false);
   const [model2, setModel2] = useState(false);
@@ -134,6 +134,13 @@ function Student_profile() {
         <div>
           {students.map((student) => (
             <div key={student.id}>
+              {/* ...profile image */}
+               <div className="flex justify-center ">
+          <div className="flex flex-col justify-center">
+            <img className='w-[200px] h-[200px] rounded-full ' src={user_profile} alt="user_profile" />
+          <h1 className='text-[30px] font-bold text-center'>{student.name}</h1>
+          </div>
+        </div>
               {/* Username */}
               <div className="content flex mt-4 items-center justify-between max-w-md bg-white p-4 rounded-md">
                 <h3>{student.name}</h3>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MdEdit, MdClose } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import user_profile from '../../assets/images/user_profile.jpg'
 
 function Admin_profile() {
   const [model, setModel] = useState(false);
@@ -102,10 +103,19 @@ function Admin_profile() {
   };
 
   return (
-    <section className="min-h-screen pb-10 form lg:m-10 bg-[#E9F1FA] w-auto lg:w-4/5 lg:mr-44 p-10">
+    <section className="min-h-screen pb-10 form lg:m-4 bg-[#E9F1FA] w-auto lg:w-4/5 lg:mr-44 p-10">
+      
       <div>
         {admins.map((admin) => (
+          
           <div key={admin.admin_id}>
+             <div className="flex justify-center ">
+          <div className="flex flex-col justify-center">
+            <img className='w-[200px] h-[200px] rounded-full ' src={user_profile} alt="user_profile" />
+          <h1 className='text-[30px] font-bold text-center'>{admin.admin_name}</h1>
+          </div>
+        </div>
+
             <div className="content flex mt-4 items-center justify-between max-w-md bg-white p-4 rounded-md">
               <h3>{admin.admin_name}</h3>
               <span className="cursor-pointer" onClick={() => setModel(true)}><MdEdit /></span>
